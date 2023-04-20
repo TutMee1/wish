@@ -1,0 +1,195 @@
+@use "sass:math";
+@use "sass:map";
+
+// Подключение шрифтов ===========================================================================================================================================================================================================================================================================
+//&display=swap - добавить при подключении через плагин
+
+// Подключить если есть локальные файлы шрифтов
+@import "fonts/fonts";
+
+$desktop: 1366px;
+$tablet: 992px;
+$mobile: 580px;
+
+$side-offset: 120px;
+$side-offset-lg: 24px;
+$side-offset-md: 20px;
+$side-offset-sm: 12px;
+
+// Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
+$fontFamily: "Pragmatica";
+$fontFamilySecond: "";
+$fontSize: 16px; // где 16(px) - размер шрифта по умолчанию из макета
+
+$tr: .3s ease-in-out;
+$tr-in: .3s ease-in-out;
+$tr-out: .6s ease-in-out;
+
+$blue: #2F80ED;
+$gray: #868888;
+$red: #EB5757;
+$orange: #F2994A;
+$yellow: #F2C94C;
+$purple: #9B51E0;
+$brown: #BE9A7B;//
+
+$greene-200: #D5F5C6;
+$greene-300: #ACEB8F;
+
+// Colors
+$white:    #fff;
+$gray-100: #F6F6F6;//
+$gray-200: #EBF0F2;//
+$gray-300: #DCDBDA;//
+$gray-400: #B4B4B4;//
+$gray-500: $gray;
+$gray-600: #8B8B8B;
+$gray-700: #5A6C7D;
+$gray-800: #3C3B3A;
+$gray-900: #3C3B3A;
+$black:    #000000;//
+
+$body-color: $black;
+
+// $secondary:     $gray-600;
+// $success:       $green;
+// $info:          $cyan;
+// $warning:       $yellow;
+// $danger:        $red;
+// $light:         $gray-100;
+// $dark:          $gray-900;
+
+$primary: $brown;
+$primaryHover: $brown;
+$primaryActive: $brown;
+
+$secondary: #306475;
+$secondaryHover: #306475;
+$secondaryActive: #306475;
+
+.u{
+	// Text color
+	&-text{
+		&-primary{
+			color: var(--primary-color);
+		}
+		&-secondary{
+			color: var(--secondary-color);
+		}
+	}
+	// Background color
+	&-bg{
+		&-primary{
+			background-color: var(--primary-color);
+			color: var(--white);
+			.c-animatedLink,
+			.c-animatedLinkBorder{
+				&::after{
+					background-color: var(--white);
+				}
+			}
+		}
+		&-secondary{
+			background-color: var(--secondary-color);
+			color: var(--white);
+		}
+	}
+	// Font-size style
+	&-fz-none{
+		font-size: 0;
+		line-height: 0;
+	}
+	// Media
+	&-media{
+		&-img{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			img, picture, svg, video, iframe, canvas{
+				max-width: 100%;
+				max-height: 100%;
+				object-fit: cover;
+			}
+		}
+		&-cover{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			img, picture, svg, video, iframe, canvas{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				&.is-logotype{
+					width: auto;
+					height: auto;
+					object-fit: contain;
+				}
+			}
+		}
+	}
+}
+
+@import "UI/_mixins";
+// Подключение библиотек
+@import "libs/bootstrap";
+@import "libs/c-slider";
+// @import "libs/animate/animate.css";
+// Обнуление и общие параметры ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
+@import "UI/_null";
+
+:root {
+	--primary-color: #{$primary};
+	--secondary-color: #{$secondary};
+	--white: #{$white};
+	--gray-100: #{$gray-100};
+	--gray-200: #{$gray-200};
+	--gray-300: #{$gray-300};
+	--gray-400: #{$gray-400};
+	--gray-500: #{$gray-500};
+	--gray-600: #{$gray-600};
+	--gray-700: #{$gray-700};
+	--gray-800: #{$gray-800};
+	--gray-900: #{$gray-900};
+	--black: #{$black};
+}
+body {
+	background-color: var(--gray-200);
+	@include media-breakpoint-down(md) {
+		font-size: rem(14);
+	}
+	// Скролл заблокирован
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+	}
+	// Сайт загружен
+	.loaded & {
+	}
+}
+// Оболочка ============================================================================================================================================================================================================================================================================================================================================================================================================================================
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	// Прижимаем footer
+	> main {
+		flex: 1 1 auto;
+	}
+	// Фикс для слайдеров
+	> * {
+		min-width: 0;
+	}
+	&--catalog{
+		background-color: var(--gray-100);
+	}
+}
+
+
+// Подключение базовых стилей, шаблонов (заготовок) и вспомогательных  классов
+@import "UI/_UI";
+
+// Подключение стилей компонентов
+@import "components/_components";
+@import "sections/_sections";

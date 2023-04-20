@@ -1,0 +1,96 @@
+@import "typography";
+//========================================================================================================================================================
+// <BUTTONS>
+// Снипет (HTML): btn
+@import "forms/c-button";
+
+// <INPUTS>
+// Снипет (HTML): inp
+@import "forms/input";
+
+// <CHECK>
+// Снипет (HTML): chk
+@import "forms/c-checkbox";
+
+// <RADIO>
+// Снипет (HTML): opt
+@import "forms/c-radiobox";
+
+//========================================================================================================================================================
+// Стили попапов
+@import "popup";
+
+@import "video";
+
+.ui-hamburger{
+	display: block;
+	position: relative;
+	width: rem(25);
+	height: rem(14);
+	cursor: pointer;
+	z-index: 5;
+	span,
+	&::before,
+	&::after {
+		content: "";
+		transition: all 0.3s ease 0s;
+		right: 0;
+		position: absolute;
+		width: 100%;
+		height: rem(2);
+		background-color: var(--gray-900);
+		border-radius: 4px;
+		will-change: transform;
+	}
+	&::before {
+		top: 0;
+	}
+	&::after {
+		bottom: 0;
+	}
+	span {
+		top: calc(50% - rem(1));
+	}
+	// ._c-touch-menu-open & {
+	// 	span {
+	// 		width: 0;
+	// 	}
+	// 	&::before,
+	// 	&::after {
+	// 	}
+	// 	&::before {
+	// 		top: calc(50% - rem(1));
+	// 		transform: rotate(-45deg);
+	// 	}
+	// 	&::after {
+	// 		bottom: calc(50% - rem(1));
+	// 		transform: rotate(45deg);
+	// 	}
+	// }
+}
+
+// Отменить выделение
+%noselect {
+	user-select: none;
+}
+// Скрыть скролл
+%hidescroll {
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+%uiscroll {
+	&::-webkit-scrollbar {
+		width: 5px;               /* ширина scrollbar */
+	}
+	&::-webkit-scrollbar-track {
+		background: var(--gray-200);        /* цвет дорожки */
+		border-radius: 7px;									/* закругление дорожки */
+		// border: 1px solid var(--white);  /* padding вокруг плашки */
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: transparentize($secondary, 0.5);    /* цвет плашки */
+		border-radius: 7px;       /* закругления плашки */
+		
+	}
+}

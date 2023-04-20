@@ -1,0 +1,225 @@
+body::after {
+	content: "";
+	background-color: rgba(0, 0, 0, 0.65);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: opacity 0.3s ease .2s;
+	pointer-events: none;
+	z-index: 149;
+	@include media-breakpoint-down(xl) {
+		content: none;
+	}
+}
+.popup-show body::after {
+	opacity: 1;
+	transition: opacity 0.3s ease 0s;
+}
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 150;
+	padding: 0px 10px;
+	transition: visibility 0.8s ease 0s;
+	visibility: hidden;
+	pointer-events: none;
+	overflow: hidden;
+	@include media-breakpoint-down(xl) {
+		display: none !important;
+	}
+	&--feedback{
+		.popup__title{
+			max-width: 100%;
+			&:not(:last-child) {
+				margin-bottom: rem(48);
+			}
+		}
+	}
+	
+	&__close{
+		position: absolute;
+		left: 100%;
+		top: 0;
+		background-color: transparent;
+		padding-left: 32px;
+		.icon{
+			fill: var(--white);
+		}
+	}
+	&__title{
+		max-width: 437px;
+		&:not(:last-child) {
+			margin-bottom: rem(24);
+			@include media-breakpoint-down(lg) {
+				margin-bottom: rem(17);
+			}
+			@include media-breakpoint-down(sm) {
+				margin-bottom: rem(32);
+			}
+		}
+	}
+	&__descr{
+		max-width: 410px;
+		line-height: math.div(24 , 16);
+		letter-spacing: -0.02em;
+		margin-bottom: rem(16);
+		@include media-breakpoint-down(md) {
+			font-size: rem(14);
+			margin-bottom:  rem(8);
+		}
+		a{
+			color: var(--primary-color);
+			border-bottom: 1px solid;
+			@media (any-hover: hover){
+				&:hover{
+					border-bottom-color: transparent;
+				}
+			}
+		}
+	}
+	&__contacts{
+		margin-top: auto;
+		&-phone{
+			display: inline-block;
+			
+			font-weight: 700;
+			font-size: rem(32);
+			line-height: math.div(40 , 32);
+			letter-spacing: -0.02em;
+			color: var(--gray-300);
+			transition: color $tr;
+			&:not(:last-child) {
+				margin-bottom: rem(16);
+			}
+			@media (any-hover: hover){
+				&:hover{
+					color: var(--gray-800);
+				}
+			}
+		}
+		&-email{
+			letter-spacing: -0.02em;
+			white-space: nowrap;
+			border-bottom: 1px solid var(--primary-color);
+			color: var(--primary-color);
+			line-height: 1em;
+			display: inline-block;
+			@media (any-hover: hover){
+				&:hover{
+					border-bottom-color:transparent;
+				}
+			}
+		}
+	}
+	&__form{
+		@include media-breakpoint-down(sm) {
+			.c-button{
+				width: auto;
+				margin-left: auto;
+				display: block;
+			}
+		}
+		.row{
+			--bs-gutter-x: 1rem;
+			--bs-gutter-y: 1rem;
+		}
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-height: 100%;
+		flex: 1 1 auto;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+	}
+	&__content {
+		position: relative;
+
+		visibility: hidden;
+		transform: translateY(-3000px);
+
+		background-color: var(--white);
+		padding: 56px;
+		width: 100%;
+		max-width: 1164px;
+		border-radius: 24px;
+		@include media-breakpoint-down(xxl) {
+			max-width: 1000px;
+		}
+		.lock & {
+			visibility: visible;
+		}
+		animation: bounceUp 1.5s ease-out forwards;
+
+		@include media-breakpoint-down(xl) {
+			transform: none;
+			animation: none;
+			visibility: visible;
+		}
+	}
+	
+	&__text{
+		&-left{
+			display: flex;
+			flex-direction: column;
+			.popup__contacts{
+				@include media-breakpoint-down(lg) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+.popup_show {
+	z-index: 150;
+	visibility: visible;
+	overflow: auto;
+	pointer-events: auto;
+}
+.popup_show .popup__content {
+	visibility: visible;
+	animation: bounceInDown 1.3s cubic-bezier(0.39, 0.58, 0.65, 1.18) forwards;
+}
+@keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.755, 1);
+  }
+  0% {
+    transform: translate3d(0, -3000px, 0);
+  }
+  40% {
+    transform: translate3d(0, 75px, 0);
+  }
+  55% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, 0px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes bounceUp {
+  from {
+		transform: translate3d(0, 0, 0);
+	}
+  to {
+    transform: translate3d(0, -3000px, 0);
+  }
+}

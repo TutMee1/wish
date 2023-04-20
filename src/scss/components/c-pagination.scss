@@ -1,0 +1,76 @@
+.c-pagination {
+	@extend %noselect;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	&__item {
+		span{
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			margin: 0px 8px;
+			border-radius: 50%;
+			padding-top: 3px;
+
+			font-weight: 500;
+			font-size: rem(20);
+			line-height: 1em;
+			letter-spacing: 0.02em;
+
+			background-color: var(--gray-200);
+			transition: background-color $tr, color $tr;
+			@media (any-hover: hover){
+				&:hover{
+					background-color: var(--gray-100);
+					color: $pantone-800;
+					.icon{
+						fill: $pantone-800;
+					}
+				}
+			}
+		}
+		.icon{
+			fill: var(--gray-900);
+			transition: fill $tr;
+		}
+		&.is-disabled {
+			pointer-events: none;
+			.icon{
+				fill: var(--gray-200);
+			}
+		}
+		&.is-current {
+			span{
+				background-color: var(--gray-100);
+				color: $pantone-800;
+			}
+		}
+		&.is-prev, &.is-next{
+			span{
+				background-color: var(--gray-100);
+				width: 65px;
+				height: 65px;
+				padding-top: 0px;
+			}
+		}
+		&.is-prev {
+			margin-right: 48px;
+			.icon{
+				margin-left: -3px;
+			}
+		}
+		&.is-next {
+			margin-left: 48px;
+			.icon{
+				margin-right: -3px;
+			}
+		}		
+	}
+	&__dots {
+		font-weight: 600;
+		font-size: rem(20);
+		margin-bottom: -15px;
+	}
+}

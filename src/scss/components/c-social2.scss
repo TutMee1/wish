@@ -1,0 +1,32 @@
+.c-social2 {
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	&__item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 80px;
+		height: 80px;
+		border: 1px solid rgba(255,255,255,0.12);
+		&:first-child{
+			border-left: none;
+		}
+		&:not(:last-child) {
+			border-right: none;
+		}
+		.icon{
+			fill: var(--white);
+			transition: $tr-out;
+		}
+		@media (any-hover: hover){
+			&:hover{
+				.icon{
+					fill: var(--primary-color);
+					transition: $tr-in;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,135 @@
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+	appearance: none;
+}
+
+
+.input {
+	user-select: none;
+	position: relative;
+	cursor: text;
+	// ОШИБКА
+	&.has-error {}
+	// УСПЕШНО
+	&.is-success{
+		.input__field{}
+		.input__name{}
+	}
+	// ФОКУС
+	&._focus{
+		.input__error{
+			display: none;
+		}
+	}
+	&--textarea{
+
+	}
+	&__field{
+		cursor: text;
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		height: 64px;
+		padding-top: 18px;
+		padding-bottom: 10px;
+		padding-left: 0;
+		padding-right: 0;
+		font-size: rem(32);
+		font-weight: 500;
+		line-height: 1.25em;
+		letter-spacing: -0.95px;
+		color: var(--black);
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid rgba(0,0,0,0.4);
+		border-radius: 0px;
+		@include media-breakpoint-down(xl) {
+			height: 62px;
+			font-size: rem(20);
+			padding-bottom: 6px;
+		}
+		&:disabled{
+			color: $gray-300;
+			text-events: none;
+			& ~ .input__name {
+				color: $gray-300;
+			}
+		}
+		&.input__error{
+			font-size: rem(32);
+			color: var(--black);
+			@include media-breakpoint-down(xl) {
+				font-size: rem(20);
+			}
+		}
+		.input--textarea > & {
+			height: 60px;
+		}
+	}
+	&__name{
+		cursor: text;
+		will-change: transform;
+		position: absolute;
+		left: 0px;
+		top: 12px;
+		white-space: nowrap;
+
+		font-size: rem(32);
+		line-height: 1em;
+		font-weight: 400;
+
+		color: rgba(0,0,0,0.6);
+		z-index: 1;
+		@include media-breakpoint-down(lg) {
+			font-size: rem(20);
+		}
+		// При фокусе
+		._focus & {
+			transform: translateY(-15px) translateX(0px);
+			font-size: rem(14);
+			letter-spacing: 0.25px;
+		}
+		// textarea
+		.input--textarea > & {
+			z-index: -1;
+			// При фокусе
+			@include media-breakpoint-down(xl){
+				font-size: rem(20);
+				top: 16px;
+			}
+		}
+		.input--textarea._focus > & {
+			transform: translateY(-9px) translateX(0px);
+			font-size: rem(14);
+			padding-top: 0px;
+			will-change: transform;
+			width: 95%;
+			@include media-breakpoint-down(xl) {
+				transform: translateY(-15px) translateX(0px);
+			}
+		}
+		
+	}
+	&__error{
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: rem(14);
+		color: #D70505;
+		@include media-breakpoint-down(sm) {
+			font-size: rem(14);
+		}
+	}
+}
+//========================================================================================================================================================
+textarea.input__field{
+	height: 64px;
+	width: 100%;
+	min-width: 100%;
+	min-height: 64px;
+	@include media-breakpoint-down(md) {
+		height: 100px;
+	}
+}

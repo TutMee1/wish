@@ -1,0 +1,58 @@
+.c-social {
+	@media (any-hover: hover){
+		&:hover{
+			.c-social__list{
+				visibility: visible;
+				opacity: 1;
+				transition: $tr;
+			}
+		}
+	}
+	&__button {
+		background: linear-gradient(90.05deg, rgba(255, 255, 255, 0.8) 0%, rgba(252, 247, 243, 0.8) 31.61%, rgba(247, 253, 255, 0.8) 81.15%, rgba(255, 255, 255, 0.8) 100%);
+		backdrop-filter: blur(17px);
+		padding: 24px;
+		padding-bottom: 52px;
+		.icon{
+			fill: var(--black);
+		}
+	}
+	&__list {
+		display: block;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		bottom: 100%;
+		top: auto;
+		background: linear-gradient(90.05deg, rgba(255, 255, 255, 0.8) 0%, rgba(252, 247, 243, 0.8) 31.61%, rgba(247, 253, 255, 0.8) 81.15%, rgba(255, 255, 255, 0.8) 100%);
+		backdrop-filter: blur(17px);
+		padding: 24px;
+		padding-bottom: 12px;
+		
+		visibility: hidden;
+		opacity: 0;
+		transition: $tr .4s;
+	}
+	&__item {
+		width: 36px;
+		height: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&:not(:last-child) {
+			margin-bottom: rem(14);
+		}
+		.icon{
+			fill: var(--black);
+			transition: $tr-out;
+		}
+		@media (any-hover: hover){
+			&:hover{
+				.icon{
+					fill: var(--primary-color);
+					transition: $tr-in;
+				}
+			}
+		}
+	}
+}

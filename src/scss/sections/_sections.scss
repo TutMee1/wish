@@ -1,0 +1,25 @@
+.s-section{
+	&__social{
+		position: fixed;
+		right: 31px;
+		bottom: 0;
+		z-index: 10;
+		@include media-breakpoint-down(xxl) {
+			right: 24px;
+		}
+		@include media-breakpoint-down(lg) {
+			display: none;
+		}
+	}
+}
+
+@import "s-preview";
+@import "s-text";
+@import "s-questions";
+@import "s-faq";
+@import "s-about";
+@import "s-free";
+@import "s-control";
+@import "s-automation";
+@import "s-plane";
+@import "s-what";

@@ -1,0 +1,19 @@
+@import "../../../node_modules/swiper/swiper";
+@import '../../../node_modules/swiper/modules/effect-fade/effect-fade';
+
+.c-slider-pagination{
+	margin-left: -5px;
+	margin-right: -5px;
+	.swiper-pagination-bullet{
+		display: inline-block;
+		margin: 0 5px;
+		width: 35px;
+		height: 5px;
+		border: 1px solid #172F37;
+		opacity: 0.3;
+		&.swiper-pagination-bullet-active{
+			opacity: 1;
+			background-color: #172F37;
+		}
+	}
+}

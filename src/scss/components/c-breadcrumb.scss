@@ -1,0 +1,38 @@
+.c-breadcrumb{
+	font-size: rem(15);
+	line-height: 1.14em;
+	letter-spacing: 0.02em;
+	color: $gray-500;
+	display: flex;
+	align-items: center;
+	li{
+		display: inline-flex;
+		align-items: center;
+		
+		&::after{
+			content: '';
+			margin: 0 4px;
+			display: inline-block;
+			width: rem(8);
+			height: rem(1);
+			background-color: #B1C9ED;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		&:last-child{
+			&::after{
+				content: none;
+			}
+		}
+		a{
+			display: inline-flex;
+			@media (any-hover: hover){
+				&:hover{
+					color: $primary;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,103 @@
+.c-contacts{
+	width: 100%;
+	&--questions{
+		@include media-breakpoint-down(md) {
+			.input__name{
+				font-size: rem(24);
+			}
+			.input._focus > .input__name{
+				font-size: rem(14);
+			}
+		}
+		.c-contacts__submit{
+			margin-left: -48px;
+			margin-top: 64px;
+			width: calc(100% + 96px);
+			height: 182px;
+			@include media-breakpoint-down(xxl) {
+				width: calc(100% + 48px);
+				margin-top: rem(90);
+				height: 160px;
+			}
+			@include media-breakpoint-down(xl) {
+				margin-top: rem(50);
+				margin-left: 0;
+				width: 100%;
+			}
+			@include media-breakpoint-down(lg) {
+				width: calc(100% + 40px);
+				margin-left: -20px;
+				margin-right: -20px;
+				padding-left: 20px;
+				padding-right: 20px;
+				.c-button-big__icon{
+					right: 20px;
+				}
+			}
+			@include media-breakpoint-down(md) {
+				width: calc(100% + 24px);
+				margin-left: -12px;
+				margin-right: -12px;
+				padding-left: 12px;
+				padding-top: 24px;
+				height: 94px;
+				.c-button-big__title{
+					font-size: rem(20);
+				}
+				.c-button-big__icon{
+					right: 12px;
+					top: 24px;
+				}
+				.c-button-big__descr{
+					display: none;
+				}
+			}
+		}
+		
+		.c-contacts__wrapper{
+			.input:not(:last-child){
+				margin-bottom: rem(52);
+				@include media-breakpoint-down(xxl) {
+					margin-bottom: rem(40);
+				}
+			}
+			.c-radiobox{
+				margin-bottom: rem(44);
+				@include media-breakpoint-down(xxl) {
+					margin-bottom: rem(44);
+				}
+			}
+			.input + .c-radiobox{
+				margin-top: rem(-30);
+				@include media-breakpoint-down(xxl) {
+					margin-top: rem(-15);
+				}
+			}
+		}
+	}
+	&__title{
+		margin-bottom: rem(64);
+	}
+	&__wrapper{
+		.input{
+			&:not(:last-child) {
+				margin-bottom: rem(52);
+				@include media-breakpoint-down(xl) {
+					margin-bottom: rem(24);
+				}
+			}
+			& + .c-radiobox{
+				margin-top: -28px;
+				@include media-breakpoint-down(xl) {
+					margin-top: 0;
+				}
+			}
+		}
+		.c-radiobox{
+			margin-bottom: rem(52);
+			@include media-breakpoint-down(xl) {
+				margin-bottom: rem(24);
+			}
+		}
+	}
+}

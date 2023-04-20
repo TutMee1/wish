@@ -1,0 +1,140 @@
+.s-faq {
+	position: relative;
+	padding-top: 79px;
+	padding-bottom: 62px;
+	&::after{
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 43vh;
+		background-color: var(--gray-100);
+		width: 100%;
+		z-index: 0;
+	}
+	@include media-breakpoint-down(xxl) {
+		padding-top: 42px;
+		padding-bottom: 55px;
+	}
+	&__wrapper {
+		position: relative;
+		z-index: 1;
+	}
+	&__container {
+	}
+	&__header {
+		text-align: right;
+		margin-bottom: rem(65);
+		padding-right: 40px;
+		@include media-breakpoint-down(xxl) {
+			padding-right: 0px;
+			margin-bottom: rem(80);
+		}
+	}
+	&__box{
+		width: 100%;
+	}
+	&__item{
+		background-color: #fff;
+		// background-color: #E0E8EB;
+		border-bottom: 1px solid #D0DBDE;
+		transition: background-color $tr-out;
+		@media (any-hover: hover){
+			&:hover{
+				background-color: #EBF0F2;
+				transition: background-color $tr-in;
+			}
+		}
+		&._spoller-item-active{
+			background-color: #E0E8EB;
+			transition: background-color $tr-in;
+		}
+
+		&:not(:last-child) {
+			border-bottom: none;
+		}
+	}
+	&__title{
+		position: relative;
+		padding: 40px;
+		padding-right: 80px;
+		width: 100%;
+		text-align: left;
+		font-size: rem(24);
+		font-weight: 500;
+		line-height: 1.25em;
+		letter-spacing: -0.2px;
+		border: 1px solid #D0DBDE;
+		border-bottom: none;
+		transition: height  $tr-out;
+		
+		display: flex;
+		align-items: flex-start;
+		@include media-breakpoint-up(xl) {
+			height: 134px;
+		}
+		@media (any-hover: hover){
+			&:hover{
+				transition: height  $tr-in;
+				height: 146px;
+			}
+		}
+		@include media-breakpoint-down(xxl) {
+			padding: 24px;
+			padding-right: 80px;
+			padding-bottom: 44px;
+		}
+		@include media-breakpoint-down(xl) {
+			padding-right: 70px;
+			padding-bottom: 44px;
+			font-size: rem(16);
+			font-weight: 400;
+		}
+		&._spoller-active{
+			border-bottom-color: transparent;
+			@include media-breakpoint-up(xl) {
+				height: 146px;
+			}
+			.s-faq__title-arrow{
+				transform: rotate(180deg);
+				transition: $tr-in;
+			}
+		}
+		&-txt{}
+		&-arrow{
+			position: absolute;
+			top: 40px;
+			right: 40px;
+			will-change: transform;
+			transition: $tr-out;
+			@include media-breakpoint-down(xxl) {
+				top: 24px;
+				right: 24px;
+			}
+			.icon{
+				fill: var(--gray-800);
+			}
+		}
+	}
+	&__body{
+		position: relative;
+		z-index: 1;
+		padding-left: 40px;
+		padding-right: 40px;
+		padding-bottom: 64px;
+		transition: background-color $tr-out;
+		letter-spacing: -0.2px;
+		line-height: 1.25em;
+		border: 1px solid #D0DBDE;
+		border-top: none;
+		border-bottom: none;
+		@include media-breakpoint-down(xxl) {
+			padding: 24px;
+			padding-top: 0;
+			padding-bottom: 44px;
+		}
+		.s-faq__body-content{
+			max-width: 700px;
+		}
+	}
+}

@@ -1,0 +1,119 @@
+// Import all of Bootstrap's CSS
+@import "~bootstrap/scss/functions";
+
+// Extra small None
+// Small	sm
+// Medium	md
+// Large	lg
+// Extra large	xl
+// Extra extra large	xxl
+$grid-columns:      12;
+$grid-gutter-width: 1.25rem;
+
+$spacer: 1rem;
+
+$spacers: (
+  0: 0,
+  1: 0.20833vw, //4px     			0.25, //rem
+  2: 0.41667vw, //8px     			0.5, //rem
+  3: 0.83333vw, //16px    			1.0, //rem
+  4: 1.04167vw, //20px    			1.25, //rem
+  // 6: 2.08333vw, //40px    			2.5, //rem
+  // 24: 1.5rem, //24px
+	// 25: 1.30208vw, //25px   			1.5625, //rem
+  // 30: 1.5625vw, //30px    			1.875, //rem
+  // 40: 2.08333vw, //40px   			2.5, //rem
+	// 50: 2.60417vw, //50px   			3.125, //rem
+	// 55: 2.60417vw, //55px   			, //rem
+	// 56: 3.5rem, //56px
+	// 65: 3.38542vw, //65px   			4.0625, //rem
+	// 72: 3.75vw, //72px      			4.5, //rem
+	// 80: 4.16667vw, //80px   			5.0, //rem
+	// 90: 4.6875vw, //90px    			5.625, //rem
+	// 96: 6rem, //96px
+	// 100: 5.20833vw, //100px 			6.25, //rem
+	// 120: 6.25vw, //120px    			7.4, //rem
+	// 140: 7.29167vw, //140px 		  8.75, //rem
+	// 160: 8.33333vw, //160px 			10.0, //rem
+	// 170: 8.85417vw, //170px 			10.625, //rem
+	// 180: 9.375vw, //180px   			11.25, //rem
+	// 190: 9.89583vw, //190px 			11.87, //rem
+	// 200: 10.41667vw, //190px  		12.5, //rem
+);
+
+$gutters: (
+  0: 0,
+  1: $spacer * .25,//4px
+  2: $spacer * .625,//10px
+  3: $spacer, //16px
+  32: $spacer * 2, //32px
+  // 5: $spacer * 1.875, //30px
+  // 6: $spacer * 2.5,
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+	xxl: 1387px,
+  xxxl: 1727px
+);
+$container-max-widths: (
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1387px,
+	xxl: 1727px,
+  xxxl: 1728px
+);
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "~bootstrap/scss/variables";
+
+// 5. Include remainder of required parts
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+
+// 6. Optionally include any other parts as needed
+@import "~bootstrap/scss/containers";
+.container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm{
+	padding-left: $side-offset;
+	padding-right: $side-offset;
+	@include media-breakpoint-down(xxl) {
+		padding-left: $side-offset-lg;
+		padding-right: $side-offset-lg;
+	}
+	@include media-breakpoint-down(lg) {
+		padding-left: $side-offset-md;
+		padding-right: $side-offset-md;
+	}
+	@include media-breakpoint-down(sm) {
+		padding-left: $side-offset-sm;
+		padding-right: $side-offset-sm;
+	}
+}
+@import "~bootstrap/scss/grid";
+.row{
+	// --bs-gutter-x: 2rem;
+	// --bs-gutter-y: 2rem;
+	// @include media-breakpoint-down(xxl) {
+	// }
+	// @include media-breakpoint-down(xl) {
+	// 	--bs-gutter-x: 1rem;
+	// 	--bs-gutter-y: 1rem;
+	// }
+	// @include media-breakpoint-down(lg) {
+		
+	// }
+	// @include media-breakpoint-down(md) {
+	// 	--bs-gutter-x: 0.5rem;
+	// 	--bs-gutter-y: 0.5rem;
+	// }
+	// @include media-breakpoint-down(sm) {
+		
+	// }
+}
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/utilities/api";

@@ -1,0 +1,26 @@
+.s-questions {
+	padding-top: 62px;
+	@include media-breakpoint-down(xxl) {
+		padding-top: 55px;
+	}
+	&__wrapper {
+	}
+	&__container {
+	}
+	&__data{
+		padding-left: 48px;
+		margin-bottom: rem(44);
+		@include media-breakpoint-down(xxl) {
+			padding-left: 24px;
+		}
+		@include media-breakpoint-down(lg) {
+			padding-left: 0;
+		}
+	}
+	&__form{
+		padding-right: 48px;
+		@include media-breakpoint-down(xxl) {
+			padding-right: 0;
+		}
+	}
+}

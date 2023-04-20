@@ -1,0 +1,66 @@
+h1, .h1{
+	
+}
+h2, .h2{
+	font-size: rem(64);
+	line-height: 1.125em;
+	font-weight: 700;
+	@include media-breakpoint-down(xxl) {
+		font-size: rem(44);
+	}
+	@include media-breakpoint-down(md) {
+		font-size: rem(32);
+		line-height: math.div(40 , 32);
+		font-weight: 500;
+	}
+
+	b{
+		@include media-breakpoint-down(sm) {
+			display: none;
+		}
+		
+	}
+}
+
+.f-heading-1{
+	font-weight: 500;
+	font-size: rem(80);
+	letter-spacing: -1.25px;
+	line-height: 1em;
+	@include media-breakpoint-down(lg) {
+		font-size: rem(40);
+		line-height: 1.1em;
+		letter-spacing: initial;
+	}
+}
+
+.f-heading-3{
+	font-weight: 500;
+	font-size: rem(32);
+	line-height: 1.25em;
+	@include media-breakpoint-down(lg) {
+		font-size: rem(24);
+	}
+}
+
+.f-heading-4{
+	font-weight: 500;
+	font-size: rem(24);
+	line-height: 1.25em;
+}
+
+.f-body-2{
+	font-weight: 400;
+	font-size: rem(20);
+	line-height: math.div(25 , 20);
+	@include media-breakpoint-down(lg) {
+		font-size: rem(16);
+		letter-spacing: -0.2px;
+		line-height: 1.25em;
+	}
+}
+
+.f-section-title{
+	color: var(--primary-color)	;
+	font-weight: 500;
+}

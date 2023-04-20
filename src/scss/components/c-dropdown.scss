@@ -1,0 +1,70 @@
+.c-dropdown{
+	position: relative;
+	&.is-sm{
+		.c-dropdown__button{
+			cursor: pointer;
+			padding-right: 28px;
+
+			font-size: rem(16);
+			&::after{
+				width: 15px;
+				height: 9px;
+			}
+		}
+		.c-dropdown__list{
+			margin-top: 16px;
+		}
+	}
+}
+.c-dropdown__button{
+	user-select: none;
+	position: relative;
+	font-weight: 500;
+	font-size: rem(24);
+	&::after{
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		will-change: transform;
+
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-image: url("data:image/svg+xml,%3Csvg width='16' height='9' viewBox='0 0 16 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.58063 5.27752L1.71672 7.01793e-08L0.111206 1.78391L7.58063 8.50639L15.0501 1.78391L13.4445 5.82819e-07L7.58063 5.27752Z' fill='black'/%3E%3C/svg%3E%0A");
+
+		transition: transform $tr;
+	}
+	&._spoller-active{
+		&::after{
+			transform: translateY(-50%) rotate(180deg);
+		}
+	}
+}
+.c-dropdown__list{
+	position: absolute;
+	left: 0;
+	top: 100%;
+	width: 100%;
+	background-color: var(--white);
+	min-width: 127px;
+
+	box-shadow: 0px 41px 33px rgba(0, 0, 0, 0.05);
+	backdrop-filter: blur(17px);
+}
+.c-dropdown__item{
+	user-select: none;
+	display: flex;
+	align-items: center;
+	padding: 16px;
+	font-weight: 500;
+	cursor: pointer;
+	@media (any-hover: hover){
+		&:hover{
+			background: radial-gradient(100% 100% at 100% 0%, #306475 0%, #073B4C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+			backdrop-filter: blur(16.105px);
+			color: var(--white);
+		}
+	}
+}

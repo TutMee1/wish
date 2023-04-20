@@ -1,0 +1,17 @@
+// Подключение стилей шапки	
+@import "header";
+@import "c-touch-menu";
+
+
+// Подключение стилей подвала
+@import "footer";
+
+// Хлебные крошки (https://validator.schema.org/)
+@import "c-breadcrumb";
+@import "c-dropdown";
+@import "c-social";
+@import "c-social2";
+
+// Квиз
+@import "c-quiz";
+@import "c-contacts";
